@@ -1,0 +1,13 @@
+entity AppLogs {
+	logId UUID 
+    entryDate ZonedDateTime
+    logger String
+    logLevel String
+    message String  
+    username String
+    aplicatie String
+    cod String
+    tip String
+}
+
+
