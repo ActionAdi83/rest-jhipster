@@ -1,0 +1,53 @@
+{
+    "name": "AppLogs",
+    "fields": [
+        {
+            "fieldName": "logId",
+            "fieldType": "UUID"
+        },
+        {
+            "fieldName": "entryDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "logger",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "logLevel",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "message",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "username",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "aplicatie",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cod",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "tip",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20191030114206",
+    "entityTableName": "app_logs",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "restapp",
+    "applications": "*",
+    "microserviceName": "restapp"
+}
