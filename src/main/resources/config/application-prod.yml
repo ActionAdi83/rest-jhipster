@@ -40,9 +40,9 @@ spring:
       enabled: false
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/restapp
-    username: restapp
-    password:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: asdf
     hikari:
       poolName: Hikari
       auto-commit: false
@@ -102,7 +102,7 @@ spring:
 server:
   port: 8081
   compression:
-    enabled: true
+    enabled: false
     mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
     min-response-size: 1024
 

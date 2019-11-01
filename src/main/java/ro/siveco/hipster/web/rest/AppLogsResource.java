@@ -11,12 +11,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.net.URI;
 import java.net.URISyntaxException;
-
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 /**
  * REST controller for managing {@link ro.siveco.hipster.domain.AppLogs}.
@@ -114,5 +114,39 @@ public class AppLogsResource {
         log.debug("REST request to delete AppLogs : {}", id);
         appLogsRepository.deleteById(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+    }
+    
+    @PostMapping("log/{severitate}/{aplicatie}/{cod}/{mesaj}")
+    public void log(@PathVariable("severitate")Integer severitate,@PathVariable("aplicatie")
+        String aplicatie,@PathVariable("cod")String cod,@PathVariable("mesaj")String mesaj){
+        AppLogs a = new AppLogs();
+        a.setLogId(UUID.randomUUID());
+        a.setEntryDate(ZonedDateTime.now());
+        a.setLogger(getClass().getName());
+        switch (severitate) {
+            case 0:
+               a.setLogLevel("FATAL");
+            case 1:
+               a.setLogLevel("ERROR");
+               break;
+            case 2:
+               a.setLogLevel("WARN");
+               break;
+            case 3:
+               a.setLogLevel("INFO");
+               break;
+            case 4:
+               a.setLogLevel("TRACE");
+               break;
+            case 5:
+               a.setLogLevel("DEBUG");
+               break;
+            default:
+               a.setLogLevel("UNKNOWN");
+        }
+        a.setAplicatie(aplicatie);
+        a.setCod(cod);
+        a.setMessage( mesaj);
+        appLogsRepository.save(a);
     }
 }

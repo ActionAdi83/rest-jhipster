@@ -5,7 +5,7 @@ services:
     # volumes:
     #     - ~/volumes/jhipster/restapp/postgresql/:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=restapp
-      - POSTGRES_PASSWORD=
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=asdf
     ports:
       - 5432:5432

@@ -14,9 +14,9 @@
         <createTable tableName="app_logs">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
-            </column>
+            </column>>
             <column name="log_id" type="${uuidType}">
-                <constraints nullable="true" />
+                <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="entry_date" type="datetime">
                 <constraints nullable="true" />
